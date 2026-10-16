@@ -1,50 +1,65 @@
+<img src="img/face.png" width="72" alt="mumbly">
+
 # mumbly
 
-mumbly is a dictation app and meeting notetaker for the Mac: press a key, talk, and it types what you meant where your cursor is. The speech and cleanup models run on your Mac, so your audio and your words stay on it.
+talk. it types what you meant.
 
-mumbly was called Local Dictation until version 0.7.12, and this repository was called local-dictation-releases; GitHub sends the old address here, so copies already installed keep updating. The version number starts over at 0.1.0, the first public version, and follows 0.7.12. The product's planned address is heymumbly.com (not live yet).
+a free dictation app for the mac. press a key, talk, and it types where your cursor is, cleaned up as you speak. the speech and cleanup models run on your mac, so what you say stays on it.
 
-## Install
+## get it
 
-Needs a Mac with Apple silicon (M1 or later) and macOS 26 or later. Paste this in Terminal:
+needs a mac with apple silicon and macos 26 or later.
 
-```
-curl -fsSL https://github.com/lvecchi500-art/mumbly/releases/latest/download/install.sh | bash
-```
+**download.** [mumbly.zip](https://github.com/lvecchi500-art/mumbly/releases/latest/download/mumbly.zip), open it, and move the app to applications. macos asks you to allow it once in system settings, privacy & security.
 
-It puts the app in `~/Applications` and opens it. After that it updates itself. The app's file is still called `LocalDictation.app` (so permissions and updates carry over from older versions); Finder, the Dock, Spotlight and macOS's permission prompts show it as mumbly.
-
-Rather not use Terminal? Download [mumbly.zip](https://github.com/lvecchi500-art/mumbly/releases/latest/download/mumbly.zip), open it, and move the app to Applications. The first time you open it macOS says it can't verify it: click Done, then open System Settings, Privacy & Security, scroll down, click Open Anyway next to the line about mumbly, and enter your password. You only do this once.
-
-## What macOS will ask, and why
-
-- **Microphone.** To hear you, only while you hold or toggle the dictation shortcut.
-- **Accessibility.** To type the text where your cursor is, and to read the text around it so the cleanup fits.
-
-Asked only when you use the feature that needs it: **Screen & System Audio Recording** (the other side of a call, when you record a meeting), **Calendar** (to name meetings), **Reminders** (to add one when you approve it), **Contacts** (to spell names right), and **Notifications**.
-
-## This build is not notarized yet
-
-Apple has not checked this build: it is signed with the project's own certificate, not an Apple Developer ID. A copy downloaded in a browser is quarantined, and macOS shows "Apple could not verify..." until you allow it once in Privacy & Security (above). The install command skips that step, because a download made with `curl` is not quarantined. The installer then installs the app only if it is signed by the project's own certificate (pinned in the script); anything else is refused and nothing on your Mac is changed. Updates are signed too, and the app checks the signature before installing one. When the build is notarized, this section will say so.
-
-## Uninstall
-
-In the app: Settings, General, Uninstall. Or, with the app already gone:
+**terminal.** no warning, and it opens the app for you:
 
 ```
-curl -fsSL https://github.com/lvecchi500-art/mumbly/releases/latest/download/uninstall.sh | bash
+curl -fsSL https://heymumbly.com/install | sh
 ```
 
-That removes the app and its models and keeps your history, notes and meetings. Add `-s -- --all` after `bash` to delete those too (the script asks first; `--dry-run` only lists what it would remove).
+**homebrew.**
 
-## Report a problem
+```
+brew install --cask lvecchi500-art/mumbly/mumbly
+```
 
-Open an issue in this repository. From the app, menu bar icon, Report a Problem... writes a report of facts about your Mac and the app (never what you dictated unless you tick it) that you can read before you send it. Issues here are public: do not put anything private in one.
+after the first install, mumbly updates itself. the app file is still called `LocalDictation.app`, so permissions and updates carry over from the versions before the rename.
 
-## Licence
+<img src="img/home.webp" width="49%" alt="mumbly's home"> <img src="img/live.webp" width="49%" alt="a dictation in mumbly">
 
-The binaries are free to use. All rights reserved: no licence to copy, modify or redistribute them is granted. The software and models mumbly is built on keep their own licences, listed in the app (Settings, Privacy, Acknowledgements).
+<img src="img/summary.webp" width="49%" alt="a meeting summary in mumbly">
 
-## Security
+## the promise
 
-To report a security problem, email: **to be added** (placeholder: the founder has not set a security address yet). Until there is one, do not post a security problem in a public issue.
+mumbly is free. Everything it does for you today stays free: no account, no ads, and no paywall on any feature you have used. If we ever add something paid, it will be new and optional, and everything that was free stays free.
+
+## privacy
+
+your audio and your words stay on your mac: the models run there, and the app needs no account.
+
+## not notarized yet
+
+this build is signed with the project's own certificate, not an apple developer id, which is why the zip asks you to allow it once. the terminal and homebrew installs check that the app is signed by that certificate and refuse anything else. updates are signed too.
+
+## what macos will ask
+
+microphone, to hear you only while you hold or toggle the shortcut. accessibility, to type where your cursor is. the rest (screen and system audio, calendar, reminders, contacts, notifications) only when you use the feature that needs it.
+
+## remove it
+
+in the app: settings, general, uninstall. with the app already gone:
+
+```
+curl -fsSL https://heymumbly.com/uninstall | sh
+```
+
+that keeps your history, notes and meetings. add `-s -- --all` after `sh` to delete those too (it asks first, and `--dry-run` only lists what it would remove). with homebrew: `brew uninstall --cask mumbly`.
+
+## help
+
+[heymumbly.com](https://heymumbly.com) · support@heymumbly.com · open an issue here (issues are public: nothing private in one) · [what changed](https://heymumbly.com/changelog.html)
+
+mumbly was called local dictation until version 0.7.12, and this repository was called local-dictation-releases; github sends the old address here.
+
+the binaries are free to use. all rights reserved: no licence to copy, modify or redistribute them is granted. the software and models mumbly is built on keep their own licences, listed in the app (settings, privacy, acknowledgements). to report a security problem, email support@heymumbly.com, not a public issue.
